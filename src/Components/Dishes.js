@@ -10,7 +10,7 @@ function Dishes({search, cuisineType, mealType, dishType}) {
 
     useEffect(() => {
         getData();
-    }, [search]);
+    }, [search, cuisineType, mealType, dishType]);
 
     const getData = async () => {
         const api = await fetch(
