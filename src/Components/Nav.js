@@ -10,13 +10,16 @@ function Nav() {
 
     const titleStyle = {
         color: 'lightgreen',
+        textDecoration: 'none',
         fontSize: '24px'
     }
 
     return (
         <nav>
             <div style={titleStyle} className="logo">
-				Recipe App
+                <Link style={titleStyle} to='/'>
+                    Recipe App
+                </Link>
 			</div>
 
             <ul className='nav-links'>

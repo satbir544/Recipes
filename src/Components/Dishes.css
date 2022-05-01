@@ -7,7 +7,7 @@
 }
 
 .dishes img {
-    max-height: 70px;
+    max-height: 80px;
     align-self: center;
     margin-right: 10px;
     border-radius: 10px;
@@ -22,13 +22,13 @@
     padding-right: 10px;
     background-image: linear-gradient(to bottom right, lightyellow, rgb(255, 255, 242));
     border-radius: 10px;
-    border: 3px solid rgba(155, 155, 155, 0.7);
+    border: 3px solid gray;
     text-align: center;
 }
 
 .card:hover {
     cursor: pointer;
-    border: 3px solid rgba(26, 26, 26, 0.7);
+    border: 3px solid lightsalmon;
 }
 
 .card p {
@@ -37,4 +37,52 @@
     font-weight: 600;
     align-self: center;
     color:rgb(150, 75, 50);
+}
+
+
+
+
+
+body.active-popup {
+    overflow-y: hidden;
+}
+
+.btn-popup {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+}
+
+.popup, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+.popup-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
 }
