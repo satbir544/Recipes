@@ -21,7 +21,7 @@
     padding-left: 10px;
     padding-right: 10px;
     background-image: linear-gradient(to bottom right, lightyellow, rgb(255, 255, 242));
-    border-radius: 10px;
+    border-radius: 8px;
     border: 3px solid gray;
     text-align: center;
 }
@@ -65,19 +65,23 @@ body.active-popup {
 }
 
 .overlay {
-    background: rgba(49,49,49,0.8);
+    background: rgba(48,48,48,0.8);
 }
-.popup-content {
+
+
+.popup-card {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    line-height: 1.4;
     background: #f1f1f1;
     padding: 14px 28px;
-    border-radius: 3px;
-    max-width: 600px;
-    min-width: 300px;
+    border: 3px solid rgb(230, 230, 230);
+    border-radius: 4px;
+    width: 55%;
+    height: 65%;
+    background-color: rgb(230, 230, 230);
+    overflow-y: auto;
 }
 
 .close-popup {
@@ -85,4 +89,32 @@ body.active-popup {
     top: 10px;
     right: 10px;
     padding: 5px 7px;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.popup-left {
+    flex-basis: 30%;
+}
+.popup-left img {
+    /*width: 150px;
+    height: 150px;*/
+
+    /*margin-top: 50%;*/
+}
+
+.popup-right {
+    flex-basis: 70%;
+    min-width: 275px;
+}
+.popup-right li {
+    width: 100%;
+}
+.popup-right .ingredients {
 }

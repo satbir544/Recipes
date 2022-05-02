@@ -24,16 +24,18 @@ function Dishes({search, cuisineType, mealType, dishType}) {
     }, [search, cuisineType, mealType, dishType]);
 
 
-    
-    // popup for dish item click
+    // popup items
     const [popupIsActive, setPopup] = useState(false);
     const [title, setTitle] = useState(null);
     const [ingredients, setIngredients] = useState([]);
+    const [image, setImage] = useState(null);
 
+
+    // popup for dish item click
     const openPopup = (props) => {  
         setTitle(props.label);
         setIngredients(props.ingredients);
-        console.log(props.ingredients);
+        setImage(props.image);
 
         setPopup(!popupIsActive);
     };
@@ -63,19 +65,30 @@ function Dishes({search, cuisineType, mealType, dishType}) {
             {popupIsActive && (
                 <div className="popup">
                     <div onClick={closePopup} className="overlay"></div>
-                    <div className="popup-content">
-                        <h2>{title}</h2>
-                        
-                        <div>
-                            {ingredients.map((ingredient) => {
-                                return (
-                                    <div>
-                                        {ingredient.text}
-                                    </div>
-                                );
-                            })}
-                        </div>
+                    <div className="popup-card">
                         <button className="close-popup" onClick={closePopup}>X</button>
+                        
+                        <div className='container'>
+                            <div className="popup-left">
+                                <img alt="dish" src={image}></img>
+                            </div>
+
+                            <div className="popup-right">
+                                <h2>{title}</h2>
+                                <div className='ingredients'>
+                                    {ingredients.map((ingredient) => {
+                                        return (
+                                            <div>
+                                                <ul>
+                                                    <li>{ingredient.text}</li>
+                                                </ul>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             )}

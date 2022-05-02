@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import './Nav.css';
 
+// navigation bar
 function Nav() {
     const navStyle = {
         color: 'white',
