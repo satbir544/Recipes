@@ -12,8 +12,25 @@ function Dishes({ search, cuisineType, mealType, dishType }) {
     // fetches data from edamam
     useEffect(() => {
         const getData = async () => {
+            let toAdd = "";
+            if (search === null) {
+                toAdd += `&q=popular`;
+            } else {
+                toAdd += `&q=${search}`;
+            }
+            
+            if (cuisineType !== null && cuisineType !== "") {
+                toAdd += `&cuisineType=${cuisineType}`;
+            }
+            if (mealType !== null && mealType !== "") {
+                toAdd += `&mealType=${mealType}`;
+            }
+            if (dishType !== null && dishType !== "") {
+                toAdd += `&dishType=${dishType}`;
+            }
+
             const api = await fetch(
-                `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${search}`
+                `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}` + toAdd
             );
             const data = await api.json();
 

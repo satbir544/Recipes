@@ -3,6 +3,7 @@ import Dishes from './Components/Dishes';
 import './Home.css'
 
 function Home() {
+    // store user input
     const [search, setSearch] = useState('popular');
     const [inputTxt, setInputTxt] = useState(null);
 
@@ -31,6 +32,25 @@ function Home() {
         e.target.select();
     }
 
+
+    // store dish types
+    const [cuisineType, setCuisineType] = useState(null);
+    const [mealType, setMealType] = useState(null);
+    const [dishType, setDishType] = useState(null);
+
+
+    const handleCuisineType = (e) => {
+        setCuisineType(e.target.value);
+    }
+
+    const handleMealType = (e) => {
+        setMealType(e.target.value);
+    }
+
+    const handleDishType = (e) => {
+        setDishType(e.target.value);
+    }
+
     return (
         <div className="home">
             <div className="inputs">
@@ -40,8 +60,8 @@ function Home() {
                 </div>
 
                 <div className="right">
-                    <select>
-                        <option value="blank">Cuisine Type</option>
+                    <select onChange={handleCuisineType}>
+                        <option value="">Cuisine Type</option>
                         <option value="american">American</option>
                         <option value="asian">Asian</option>
                         <option value="british">British</option>
@@ -62,8 +82,8 @@ function Home() {
                         <option value="south east asian">South East Asian</option>
                     </select>
                     
-                    <select>
-                        <option value="blank">Meal Type</option>
+                    <select onChange={handleMealType}>
+                        <option value="">Meal Type</option>
                         <option value="breakfast">Breakfast</option>
                         <option value="lunch">Lunch</option>
                         <option value="dinner">Dinner</option>
@@ -71,8 +91,8 @@ function Home() {
                         <option value="teatime">Teatime</option>
                     </select>
 
-                    <select>
-                        <option value="blank">Dish Type</option>
+                    <select onChange={handleDishType}>
+                        <option value="">Dish Type</option>
                         <option value="biscuits and cookies">Cookies</option>
                         <option value="bread">Bread</option>
                         <option value="cereals">Cereals</option>
@@ -92,7 +112,8 @@ function Home() {
                     </select>
                 </div>
             </div>
-            <Dishes search={search} cuisineType="" mealType="" dishType="" />
+
+            <Dishes search={search} cuisineType={cuisineType} mealType={mealType} dishType={dishType} />
         </div>
     );
 }
