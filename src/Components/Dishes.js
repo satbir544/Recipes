@@ -13,7 +13,7 @@ function Dishes({ search, cuisineType, mealType, dishType }) {
     useEffect(() => {
         const getData = async () => {
             let toAdd = "";
-            if (search === null) {
+            if (search === null || search === "") {
                 toAdd += `&q=popular`;
             } else {
                 toAdd += `&q=${search}`;
@@ -43,16 +43,14 @@ function Dishes({ search, cuisineType, mealType, dishType }) {
 
     // popup items
     const [popupIsActive, setPopup] = useState(false);
-    const [title, setTitle] = useState(null);
     const [ingredients, setIngredients] = useState([]);
-    const [image, setImage] = useState(null);
+    const [dishInfo, setDishInfo] = useState(null);
 
 
     // popup for dish item click
     const openPopup = (props) => {
-        setTitle(props.label);
         setIngredients(props.ingredients);
-        setImage(props.image);
+        setDishInfo(props);
 
         setPopup(!popupIsActive);
     };
@@ -70,14 +68,17 @@ function Dishes({ search, cuisineType, mealType, dishType }) {
 
     return (
         <div className="dishes">
-            {items.map((item) => {
-                return (
-                    <div className='card' key={item.recipe.label} onClick={() => openPopup(item.recipe)}>
-                        <img alt="dish" src={item.recipe.image}></img>
-                        <p>{item.recipe.label}</p>
-                    </div>
-                )
-            })}
+            { items.length > 0 ? (
+                items.map((item) => {
+                    return (
+                        <div className='card' key={item.recipe.label} onClick={() => openPopup(item.recipe)}>
+                            <img alt="dish" src={item.recipe.image}></img>
+                            <p>{item.recipe.label}</p>
+                        </div>
+                    )
+                })
+            ) : <div className='noItems'><p>Sorry, No items found.</p></div>
+            }
 
             {popupIsActive && (
                 <div className="popup">
@@ -87,11 +88,20 @@ function Dishes({ search, cuisineType, mealType, dishType }) {
 
                         <div className='container'>
                             <div className="popup-left">
-                                <img alt="dish" src={image}></img>
+                                <div>
+                                    <img alt="dish" src={dishInfo.image}></img>
+                                </div>
+                                <div className="types">
+                                    <p><strong>Cuisine Type: </strong>{dishInfo.cuisineType}</p>
+                                    <p><strong>Meal Type: </strong>{dishInfo.mealType}</p>
+                                    <p><strong>Dish Type: </strong>{dishInfo.dishType}</p>
+                                </div>
                             </div>
 
                             <div className="popup-right">
-                                <h2>{title}</h2>
+                                <div className='title'>
+                                    <h2>{dishInfo.label}</h2>
+                                </div>
                                 <div className="popup-bottom-right">
                                     <div className='ingredients'>
                                         {ingredients.map((ingredient) => {

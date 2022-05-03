@@ -110,4 +110,20 @@ body.active-popup {
 .popup-bottom-right {
     height: 275px;
     overflow-y: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+    color: rgb(37, 37, 37);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.types {
+    font-size: 14px;
+    color: rgb(40, 40, 40);
+    font-style: italic;
+}
+
+.noItems p{
+    color: white;
 }

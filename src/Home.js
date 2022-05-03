@@ -93,22 +93,21 @@ function Home() {
 
                     <select onChange={handleDishType}>
                         <option value="">Dish Type</option>
-                        <option value="biscuits and cookies">Cookies</option>
-                        <option value="bread">Bread</option>
-                        <option value="cereals">Cereals</option>
-                        <option value="condiments and sauces">Sauces</option>
+                        <option value="pancake">Pancake</option>
                         <option value="desserts">Desserts</option>
                         <option value="drinks">Drinks</option>
+                        <option value="starter">Starter</option>
                         <option value="main course">Main Course</option>
-                        <option value="pancake">Pancake</option>
+                        <option value="cereals">Cereals</option>
+                        <option value="bread">Bread</option>
+                        <option value="condiments and sauces">Sauces</option>
+                        <option value="biscuits and cookies">Cookies</option>
                         <option value="preps">Preps</option>
                         <option value="preserve">Preserve</option>
                         <option value="salad">Salad</option>
                         <option value="sandwiches">Sandwiches</option>
                         <option value="side dish">Side Dish</option>
                         <option value="soup">Soup</option>
-                        <option value="starter">Starter</option>
-                        <option value="sweets">Sweets</option>
                     </select>
                 </div>
             </div>
