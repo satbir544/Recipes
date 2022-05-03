@@ -2,7 +2,7 @@ import './Dishes.css';
 
 import { useState, useEffect } from 'react';
 
-function Dishes({search, cuisineType, mealType, dishType}) {
+function Dishes({ search, cuisineType, mealType, dishType }) {
     // id and key
     const APP_ID = "0354f5ab";
     const API_KEY = "e9db58c25f81040a247151ccb5f7b614";
@@ -16,10 +16,10 @@ function Dishes({search, cuisineType, mealType, dishType}) {
                 `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${search}`
             );
             const data = await api.json();
-    
+
             setItems(data.hits);
         };
-        
+
         getData();
     }, [search, cuisineType, mealType, dishType]);
 
@@ -32,7 +32,7 @@ function Dishes({search, cuisineType, mealType, dishType}) {
 
 
     // popup for dish item click
-    const openPopup = (props) => {  
+    const openPopup = (props) => {
         setTitle(props.label);
         setIngredients(props.ingredients);
         setImage(props.image);
@@ -44,7 +44,7 @@ function Dishes({search, cuisineType, mealType, dishType}) {
         setPopup(!popupIsActive);
     };
 
-    if(popupIsActive) {
+    if (popupIsActive) {
         document.body.classList.add('active-popup')
     } else {
         document.body.classList.remove('active-popup')
@@ -55,7 +55,7 @@ function Dishes({search, cuisineType, mealType, dishType}) {
         <div className="dishes">
             {items.map((item) => {
                 return (
-                    <div className='card' key={item.recipe.label} onClick={()=>openPopup(item.recipe)}>
+                    <div className='card' key={item.recipe.label} onClick={() => openPopup(item.recipe)}>
                         <img alt="dish" src={item.recipe.image}></img>
                         <p>{item.recipe.label}</p>
                     </div>
@@ -67,7 +67,7 @@ function Dishes({search, cuisineType, mealType, dishType}) {
                     <div onClick={closePopup} className="overlay"></div>
                     <div className="popup-card">
                         <button className="close-popup" onClick={closePopup}>X</button>
-                        
+
                         <div className='container'>
                             <div className="popup-left">
                                 <img alt="dish" src={image}></img>
@@ -75,20 +75,22 @@ function Dishes({search, cuisineType, mealType, dishType}) {
 
                             <div className="popup-right">
                                 <h2>{title}</h2>
-                                <div className='ingredients'>
-                                    {ingredients.map((ingredient) => {
-                                        return (
-                                            <div>
-                                                <ul>
-                                                    <li>{ingredient.text}</li>
-                                                </ul>
-                                            </div>
-                                        );
-                                    })}
+                                <div className="popup-bottom-right">
+                                    <div className='ingredients'>
+                                        {ingredients.map((ingredient) => {
+                                            return (
+                                                <div>
+                                                    <ul>
+                                                        <li>{ingredient.text}</li>
+                                                    </ul>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             )}
