@@ -3,8 +3,6 @@
 - dishes can be filtered by cuisine type, meal type, and dish type
 - link: https://satbir-recipe-app.netlify.app/
 
-## 1. 
+## 1. Searching a Dish
 
-## 2.
-
-## 3. 
+## 2. Filtering the Dish
