@@ -6,6 +6,7 @@
 ## 1. Searching a Dish
 - the home page will show the most popular dishes by default
 - you can enter any dish in the search box, that you would like to search for
+- when a dish is selected, a pop-up appears with its picture, the various types, its name, and the recipe
 
 
 https://user-images.githubusercontent.com/69642217/191145990-70a31569-7290-4ad7-ab63-78e4d36e28d4.mp4
